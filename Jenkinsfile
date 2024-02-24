@@ -5,7 +5,9 @@ pipeline {
       steps {
         script {
           git branch: 'main', url: 'https://github.com/ursite-io/urpage-core.git'
-          sh 'source ~/.profile'
+          sh 'export NVM_DIR="$HOME/.nvm"'
+          sh '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"'
+          sh '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"'
           sh 'npm install'
           sh 'npm run build'
         }
