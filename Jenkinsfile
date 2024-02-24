@@ -5,7 +5,6 @@ pipeline {
       steps {
         script {
           git branch: 'main', url: 'https://github.com/ursite-io/urpage-core.git'
-          sh 'rm -R node_modules/'
           sh 'npm install'
           sh 'npm run build'
         }
