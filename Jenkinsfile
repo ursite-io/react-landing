@@ -1,11 +1,13 @@
 pipeline {
   agent any
+   environment {
+        PATH = "/root/.nvm/versions/node/v18.17.1/bin:$PATH"
+  }
   stages {
     stage('Build') {
       steps {
         script {
           git branch: 'main', url: 'https://github.com/ursite-io/urpage-core.git'
-          sh '. /etc/profile'
           sh 'npm install'
           sh 'npm run build'
         }
