@@ -19,7 +19,7 @@ pipeline {
       steps {
         script {
             sshagent(credentials: ['ssh-1']) {
-                sh 'ssh ea@192.168.1.200 "pm2 restart urpage"'
+                sh 'ssh ea@192.168.1.200 "/home/ea/.nvm/versions/node/v18.17.1/bin/node /home/ea/.nvm/versions/node/v18.17.1/bin/pm2 restart urpage"'
             }
         }
 
