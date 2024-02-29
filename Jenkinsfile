@@ -18,7 +18,9 @@ pipeline {
     stage('Deploy') {
       steps {
         script {
-          sh 'pm2 restart app.js --name "tu_app_nextjs"'
+            sshagent(credentials: ['ssh-1']) {
+                sh 'ssh ea@192.168.1.200 "pm2 restart urpage"'
+            }
         }
 
       }
